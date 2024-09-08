@@ -1,1 +1,2 @@
-# README, git is SOOOO cooooool. #
+# README, git is SOOOO cooooool.
+Wait a second. NOOO! #
