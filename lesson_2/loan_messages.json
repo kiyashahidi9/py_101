@@ -1,0 +1,11 @@
+{
+    "loan_amt": "How much is the loan? ($)\n",
+    "valid_loan": "Enter a valid loan amount ($)\n",
+    "apr": "How much is the Annual Percentage Rate? (%)\n",
+    "valid_apr": "Enter a valid APR (%)\n",
+    "loan_dur_yr": "How long is the loan? (years)\n",
+    "valid_dur": "Enter a valid loan duration (years)\n",
+    "result": "The monthly pay is ${monthly_pay:.2f}\n",
+    "again": "Would you like to make another calculation? (y/n)\n",
+    "valid_again": "Please enter a (y/n)\n"
+}
