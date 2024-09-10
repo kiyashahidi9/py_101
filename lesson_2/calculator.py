@@ -1,8 +1,7 @@
 # ask the user for the first number.
 # ask the user for the second number.
 # ask the user for an operation to perform
-# perform the operation on the to numbers
-# print the result to the terminal
+
 
 # defining functions
 def prompt(message):
