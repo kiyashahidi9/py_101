@@ -1,11 +1,17 @@
 {
-    "welcome": "Welcome to Calculator!\n",
-    "invalid_number": "Hmm... that doesn't look like a valid number. Try again\n",
-    "first": "What's the first number?\n",
-    "second": "What's the second number?\n",
-    "operation": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide\n",
-    "invalid_operation": "You must choose 1, 2, 3, or 4\n",
-    "result": "The result is: {output}",
-    "again": "Would you like to perform another calculation? (y/n)\n",
-    "invalid_again": "Please enter a (y/n)\n"
+   
+   "en": { 
+        "welcome": "Welcome to Calculator!\n",
+        "invalid_number": "Hmm... that doesn't look like a valid number. Try again\n",
+        "first": "What's the first number?\n",
+        "second": "What's the second number?\n",
+        "operation": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide\n",
+        "invalid_operation": "You must choose 1, 2, 3, or 4\n",
+        "result": "The result is: {output}",
+        "again": "Would you like to perform another calculation? (y/n)\n",
+        "invalid_again": "Please enter a (y/n)\n"
+},
+    "es": {
+        "welcome": "Bienvenido!"
+    }
 }

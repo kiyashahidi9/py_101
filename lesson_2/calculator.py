@@ -1,10 +1,17 @@
+LANGUAGE = 'en'
+import json
+
+# import messages from a config file
+with open('calculator_messages.json', 'r') as file:
+    MESSAGES = json.load(file)
+
 # defining functions
 def prompt(message):
     return f'==> {message}'
 
 def invalid_number(num):
     try:
-        int(num)
+        float(num)
     except ValueError:
         return True
     return False
@@ -17,58 +24,50 @@ def calc_stop(again):
             case 'n':
                 return True
             case _:
-                again = input('Please enter a (y/n)\n')
+                again = input(messages('invalid_again'))
+
+def messages(message, lang=LANGUAGE):
+    return MESSAGES[lang][message]
 
 # welcomes user
-print(prompt('Welcome to Calculator!'))
+print(prompt(messages('welcome', 'es')))
 
 # allows the user to enter as many calculations as they want
 while True:
 
 # ask user for first number and checks if valid
-    num1 = input(prompt('What\'s the first number?\n'))
+    num1 = input(prompt(messages('first')))
 
     while invalid_number(num1):
-        num1 = input((prompt('Hmm... that doesn\'t look like a valid number.'
-                            ' Try again\n')))
+        num1 = input((prompt(messages('invalid_number'))))
 
     # ask user for second number and checks if valid
-    num2 = input(prompt("What's the second number?\n"))
+    num2 = input(prompt(messages('second')))
 
     while invalid_number(num2):
-        num2 = input(prompt('Hmm... that doesn\'t look like a valid number.'
-                            ' Try again\n'))
+        num2 = input(prompt(messages('invalid_number')))
 
     # ask user for operation and checks if valid
-    operation = input(prompt('What operation would you like to perform?\n'
-                                '1) Add 2) Subtract 3) Multiply 4) Divide\n'))
+    operation = input(prompt(messages('operation')))
 
     while operation not in ['1', '2', '3', '4']:
-        operation = input(prompt('You must choose 1, 2, 3, or 4\n'))
+        operation = input(prompt(messages('invalid_operation')))
 
     # performs operation
     match int(operation):
         case 1:
-            output = int(num1) + int(num2)
+            output = float(num1) + float(num2)
         case 2:
-            output = int(num1) - int(num2)
+            output = float(num1) - float(num2)
         case 3:
-            output = int(num1) * int(num2)
+            output = float(num1) * float(num2)
         case 4:
-            output = int(num1) / int(num2)
+            output = float(num1) / float(num2)
 
     # displays result
-    print(f'''
----------------------------
-The result is: {output}
----------------------------
-         ''')
+    print(messages('result').format(output=output))
 
     # asks user if they wanna do it again
-    again = calc_stop(input('Would you like to perform another calculation? (y/n)\n'))
+    again = calc_stop(input(messages('again')))
     if again:
         break
-# user is prompted if they want to do it again 
-# case yes, the program goes back to the beginning of the loop
-# case no, the loop breaks and program ends
-# invalid response, the user is prompted again until they enter yes or no
