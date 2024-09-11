@@ -14,7 +14,9 @@ def invalid_input(inp):
         float(inp)
     except ValueError:
         return True
-    return inp in ['inf', 'nan']
+    else:
+        return (float(inp) < 0) or (inp in ['inf', 'nan'])
+    
 
 # invalidating zero
 def invalid_no_zero(inp):
