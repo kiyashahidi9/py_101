@@ -69,5 +69,6 @@ while True:
 
     # asks user if they wanna do it again
     again = calc_stop(input(messages('again')))
+
     if again:
         break

@@ -1,7 +1,6 @@
 # importing for computer choice
 import random
 
-# setting constants
 VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 # returns a list to display choices with () around short choices
@@ -33,8 +32,11 @@ def shortened_choices():
         shortened_list.append(short)
 
     return shortened_list
-# if given a shortened input, converts to full word
 
+display_choices = return_choices_list()
+valid_shortened_choices = shortened_choices()
+
+# if given a shortened input, converts to full word
 def process_shortened_input(short_input):
     for word in VALID_CHOICES:
         if word.startswith(short_input):
@@ -74,9 +76,8 @@ You have {player_wins} wins!
 The computer has {computer_wins} wins
            ''')
 
-# more variables
-display_choices = return_choices_list()
-valid_shortened_choices = shortened_choices()
+def separator():
+    print('--------------------------------------')
 
 while True:
 
@@ -101,7 +102,7 @@ while True:
         computer_choice = random.choice(VALID_CHOICES)
 
         # displays choices from both sides
-        prompt(f'You chose {choice}, computer chose {computer_choice}')
+        prompt(f'You chose {choice}, computer chose {computer_choice}\n')
 
         # displays the winner of the round, keeps track of score
         if player_won(choice, computer_choice):
@@ -124,6 +125,8 @@ while True:
             prompt('You lost the game :(')
             break
 
+    separator()
+
     # asks user to play again and validates input
     prompt('Would you like to play again? (y/n)')
     play_again = input().lower()
@@ -135,4 +138,4 @@ while True:
     if play_again[0].lower() == 'n':
         break
 
-    print('--------------------------------------')
+    separator()
